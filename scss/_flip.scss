@@ -1,0 +1,50 @@
+$starting-width: 500px;
+$number-of-slides: 48;
+$number-of-repeats: 3;
+///Interval the screen moves before the next frame is loaded 
+$fps: 5px;
+
+
+.flip-book {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+//Preload images hack with CSS.
+$string:'';
+@for $i from 1 through 48 {
+  $string: $string + " url('../img/walking/walking-#{$i}.png')";
+}
+
+//Uses the preloader hack only on webkit screens. Firefox had some issues interpreting the preloading hack.
+@media screen and (-webkit-min-device-pixel-ratio: 0) { 
+  body:after{
+    display:none;
+    content: unquote($string);
+  }
+}
+
+//Iterates through and adds the background images 
+@for $e from 1 through $number-of-repeats {
+  //iterates through and adds the background images
+  @for $i from 1 through 48 {
+    @media screen and (min-width: $starting-width) {
+      .flip-book {
+        background: url('../img/walking/walking-#{$i}.png') no-repeat center top;
+        background-size: 100%;
+      }
+      $starting-width: $starting-width + $fps;
+    }
+  }
+}
+
+@media screen and (min-width: $starting-width) {
+  .flip-book {
+    background: none;
+  }
+}
+
+
