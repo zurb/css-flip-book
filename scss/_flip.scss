@@ -1,21 +1,25 @@
-$starting-width: 500px;
+//The screen width that the flip book starts.
+$starting-width: 200px;
+//The number of images you have for the flipbook.
 $number-of-slides: 48;
+//The number of times the animation repeats.
 $number-of-repeats: 3;
-///Interval the screen moves before the next frame is loaded 
+//Interval the screen moves before the next frame is loaded. 
 $fps: 5px;
-
+//Flip book height and width.
+$dimension: 150px;
 
 .flip-book {
   position: absolute;
   bottom: 0;
-  right: 20px;
-  width: 100px;
-  height: 100px;
+  right: 0;
+  width: $dimension;
+  height: $dimension;
 }
 
 //Preload images hack with CSS.
 $string:'';
-@for $i from 1 through 48 {
+@for $i from 1 through $number-of-slides {
   $string: $string + " url('../img/walking/walking-#{$i}.png')";
 }
 
@@ -30,21 +34,19 @@ $string:'';
 //Iterates through and adds the background images 
 @for $e from 1 through $number-of-repeats {
   //iterates through and adds the background images
-  @for $i from 1 through 48 {
+  @for $i from 1 through $number-of-slides {
     @media screen and (min-width: $starting-width) {
       .flip-book {
-        background: url('../img/walking/walking-#{$i}.png') no-repeat center top;
-        background-size: 100%;
+        background: url('../img/walking/walking-#{$i}.png') bottom center / 100% no-repeat;
       }
       $starting-width: $starting-width + $fps;
     }
   }
 }
 
+//Ends the flip book.
 @media screen and (min-width: $starting-width) {
   .flip-book {
     background: none;
   }
 }
-
-

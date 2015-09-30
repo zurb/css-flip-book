@@ -1,0 +1,18 @@
+//Optional background for the body of the document.
+body {
+  background-image: url('../img/walking/background.png');
+  background-repeat: repeat-x;
+  background-size: 400px auto;
+  background-position: bottom;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+.title {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #524954;
+}
