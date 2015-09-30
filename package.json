@@ -1,9 +1,9 @@
 {
-  "name": "foundation-libsass-template",
-  "version": "0.0.1",
+  "name": "css-flip-book",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zurb/foundation-libsass-template.git"
+    "url": "https://github.com/tdhartwick/css-flip-book.git"
   },
   "devDependencies": {
     "node-sass": "~2.0.1",
