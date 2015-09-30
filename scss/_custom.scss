@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
 //Optional background for the body of the document.
 body {
   background-image: url('../img/walking/background.png');
@@ -6,13 +8,14 @@ body {
   background-position: bottom;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+//Helper title.
 .title {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  right: 0px;
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
   font-size: 10px;
   color: #524954;
+  background-color: white;
+  padding: 15px;
 }

@@ -1,9 +1,13 @@
+//Name of animation slides
+$animation-name: 'walking';
+//The name of the directory in the img folder where the slides live. 
+$directory-name: $animation-name;
 //The screen width that the flip book starts.
 $starting-width: 200px;
 //The number of images you have for the flipbook.
 $number-of-slides: 48;
 //The number of times the animation repeats.
-$number-of-repeats: 3;
+$number-of-repeats: 10;
 //Interval the screen moves before the next frame is loaded. 
 $fps: 5px;
 //Flip book height and width.
@@ -20,7 +24,7 @@ $dimension: 150px;
 //Preload images hack with CSS.
 $string:'';
 @for $i from 1 through $number-of-slides {
-  $string: $string + " url('../img/walking/walking-#{$i}.png')";
+  $string: $string + " url('../img/#{$directory-name}/#{$animation-name}-#{$i}.png')";
 }
 
 //Uses the preloader hack only on webkit screens. Firefox had some issues interpreting the preloading hack.
@@ -37,7 +41,7 @@ $string:'';
   @for $i from 1 through $number-of-slides {
     @media screen and (min-width: $starting-width) {
       .flip-book {
-        background: url('../img/walking/walking-#{$i}.png') bottom center / 100% no-repeat;
+        background: url('../img/#{$directory-name}/#{$animation-name}-#{$i}.png') bottom center / 100% no-repeat;
       }
       $starting-width: $starting-width + $fps;
     }
